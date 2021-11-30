@@ -13,22 +13,17 @@ readonly APIUrl = "http://localhost:8000"
   getBooklist():Observable<any[]> {
     return this.http.get<any[]>(this.APIUrl + '/books/');
   }
-  
-  getAllBooknames():Observable<any[]> {
-    return this.http.get<any[]>(this.APIUrl + '/books/');
-  }
-  
   addBooklist(val:any){
     return this.http.post(this.APIUrl + '/books/', val);
   }
-  
   updateBooklist(val:any){
     return this.http.put(this.APIUrl + '/books/', val);
   }
-  
   deleteBooklist(val:any){
     return this.http.delete(this.APIUrl + '/books/' + val);
   }
 
-  
+  getAllBooknames():Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + '/books/');
+  }
 }

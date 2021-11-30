@@ -34,6 +34,7 @@ export class ShowComponent implements OnInit {
     this.ActivateAddEditBook=true;
   }
 
+
   closeClick(){
     this.ActivateAddEditBook=false;
     this.refreshBooklist;
@@ -46,7 +47,7 @@ export class ShowComponent implements OnInit {
   }
 
   deleteClick(item: any){
-    if(confirm('Are you sure?')){
+    if(confirm('Sure?')){
       this.service.deleteBooklist(item.id).subscribe(data=>{
         alert(data.toString());
         this.refreshBooklist();
