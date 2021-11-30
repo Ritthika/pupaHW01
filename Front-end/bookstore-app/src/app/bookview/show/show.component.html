@@ -18,13 +18,17 @@
         </div>
     </div>
 </div>
+
+<div class="d-flex flex-row" >ค้นหาชื่อหนังสือ<input [(ngModel)]="BookNameFiltered" class="form-control" (keyup)="filterfn()"></div>
+
 <table class="table table-striped">
     <thead>
         <tr>
-            <th></th>
-            <th>Bookname</th>
-            <th>Price </th>
-            <th>Amount</th>
+            <th>Book cover (หน้าปกหนังสือ)</th>
+            <th>Bookname (ชื่อหนังสือ)</th>
+            <th>Price (จำนวนหนังสือ(ที่มี))</th>
+            <th>Amount (ราคา)</th>
+            <th>Option(แก้ไขข้อมูลสำหรับผู้ดูแล)</th>
         </tr>
     </thead>
     <tbody>

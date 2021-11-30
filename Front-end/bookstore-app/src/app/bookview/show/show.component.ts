@@ -15,6 +15,9 @@ export class ShowComponent implements OnInit {
   ModalTitle: string | undefined;
   ActivateAddEditBook:boolean = false;
   book:any;
+  BookIdFiltered:string="";
+  BookNameFiltered:string="";
+  BooklistwithoutFiltered:any=[];
 
   ngOnInit(): void {
     this.refreshBooklist();
@@ -43,6 +46,7 @@ export class ShowComponent implements OnInit {
   refreshBooklist(){
     this.service.getBooklist().subscribe(data=>{
       this.Bookviewlist = data;
+      this.BooklistwithoutFiltered=data;
     });
   }
 
@@ -54,5 +58,20 @@ export class ShowComponent implements OnInit {
       })
     }
   }
+  
+  filterfn(){
+    var bookIdFilter = this.BookIdFiltered;
+    var bookNameFilter = this.BookNameFiltered;
+
+    this.Bookviewlist = this.BooklistwithoutFiltered.filter(function (el: { id: { toString: () => string; }; bookname: { toString: () => string; }; }){
+      return el.id.toString().toLowerCase().includes(
+        bookIdFilter.toString().trim().toLowerCase()
+      )&&
+      el.bookname.toString().toLowerCase().includes(
+        bookNameFilter.toString().trim().toLowerCase()
+      )
+    })
+  }
 
 }
+
